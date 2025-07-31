@@ -1,55 +1,74 @@
-# AutoRootCauseX 🔍⚙️  
-**AI-Powered Real-Time Root Cause Analysis System for Automotive Safety Complaints**
+# AutoRootCauseX 🔍⚙️
 
-[🚀 Live App](https://n7csqgfinj8j9snbsmvtk8.streamlit.app) | [📂 GitHub Repo](https://github.com/Sravanitalari1/AutoRootCauseX)
-
----
-
-## 📌 Project Overview
-**AutoRootCauseX** is an end-to-end, real-time root cause analysis (RCA) system that scrapes safety complaints data from [NHTSA](https://www.nhtsa.gov/) and uses GenAI-powered NLP clustering to discover early signs of failure patterns in Electric & Gasoline Vehicles.
+**Real-Time Root Cause Analysis for Automotive Complaints**
 
 ---
 
-## 🧠 Key Capabilities
+## Why I Built This
 
-| Feature | Status | Notes |
-|--------|--------|-------|
-| 🔄 Real-time data scraping from NHTSA | ✅ Complete | Scrapes by Make, Model, Year |
-| 🧼 Data cleaning & preprocessing | ✅ Complete | Basic filters and summaries |
-| 🧠 Complaint text clustering (NLP) | ✅ Complete | SentenceTransformer + HDBSCAN |
-| 📊 RCA KPI dashboard | 🔄 In Progress | Building advanced KPIs |
-| 🧾 Root Cause Summarization (GenAI) | 🔄 In Progress | To be powered by open-source LLMs |
-| 📤 Export insights to CSV/PDF | 🚧 Planned | Batch reports for business teams |
-| 💡 KPI alerts & trend monitoring | 🚧 Planned | For early issue detection |
-| 🌐 Fully hosted & free | ✅ Complete | Built on GitHub Codespaces + Streamlit Cloud |
+I created AutoRootCauseX to solve a real pain point in automotive aftersales and warranty claims analysis. Companies spend too much time manually digging through thousands of complaints to find patterns and root causes. My goal is to automate this process using AI — combining live data scraping, natural language processing, and advanced clustering techniques to deliver actionable insights quickly.
 
 ---
 
-## 🎯 KPIs (In Progress — Coming Next)
+## What It Does
 
-We are building **deep-research-level KPIs** tailored for RCA analysts and safety engineers:
-
-- **Failure Trend Velocity** (per component per region)
-- **Latent Complaint Cluster Growth Rate**
-- **First-Time Component Mention (FTCM)**
-- **Severity-Weighted Complaint Score**
-- **Geo-Sentiment Risk Zones**
-- **Recurring VIN Pattern Detection**
-- **Cluster Novelty Score (emerging issue signal)**
-
-> ✅ Let us know if you'd like to prioritize specific KPIs in your portfolio demo.
+- Scrapes up-to-date vehicle complaint data directly from NHTSA’s official API — no static or outdated datasets.
+- Cleans and processes complaint text for analysis.
+- Uses state-of-the-art sentence embeddings and unsupervised clustering (HDBSCAN) to identify groups of similar failure complaints.
+- Provides an interactive dashboard built with Streamlit where users can explore data, run root cause analysis, and see preliminary KPIs.
+- Deploys fully online using free tools like GitHub Codespaces and Streamlit Cloud — no paid servers or complex setup needed.
 
 ---
 
-## 📁 Project Structure
+## Current Progress
 
-```bash
-AutoRootCauseX/
-│
-├── app.py                     # Main Streamlit application
-├── data/
-│   └── data_fetcher.py        # NHTSA live complaint scraper
-├── nlp/
-│   └── clustering.py          # Embedding & complaint clustering
-├── requirements.txt           # All packages needed
-└── README.md                  # This file
+| Feature                         | Status             | Notes                          |
+|--------------------------------|--------------------|--------------------------------|
+| Real-time data scraper          | ✅ Completed       | Works with flexible vehicle filters (make, model, year) |
+| Data preprocessing             | ✅ Completed       | Basic cleaning and filtering   |
+| NLP-based clustering           | ✅ Completed       | SentenceTransformer + HDBSCAN  |
+| Streamlit interactive dashboard| ✅ Completed       | Displays data and clusters     |
+| Advanced KPIs and metrics      | 🔄 In Progress     | Designing deep, meaningful KPIs focused on real-world RCA needs |
+| GenAI-based root cause summaries| 🔄 In Progress     | Working on integrating open-source LLM models for auto-labeling and explanation |
+| Export options (CSV, PDF)       | 🚧 Planned         | To enable easy sharing of reports |
+| Additional UI/UX polishing      | 🚧 Planned         | Improve visuals and user experience |
+
+---
+
+
+
+## Why This Matters
+
+This project is designed for automotive engineers, warranty analysts, and data scientists working to speed up diagnostics, reduce recall costs, and improve vehicle quality — especially in the growing electric vehicle segment.
+
+By automating root cause analysis, companies can catch emerging issues earlier and act faster, improving safety and customer satisfaction.
+
+---
+
+## What’s Next
+
+- Add detailed KPIs like failure trend velocity, recurrence density, and geo-risk scoring.
+- Integrate GenAI to summarize clusters with natural language insights.
+- Build export features for sharing reports with business teams.
+- Refine the UI to make it intuitive for non-technical users.
+
+---
+
+## Connect with Me
+
+I’m Sravani Talari — passionate about solving real-world problems with data and AI.
+
+- GitHub: [sravanitalari1](https://github.com/sravanitalari1)  
+- LinkedIn: [linkedin.com/in/sravanitalari](https://linkedin.com/in/sravanitalari)
+
+Feel free to reach out if you want to collaborate or learn more about this project!
+
+---
+
+## License
+
+MIT License — free to use and adapt.
+
+
+1. Open this project in GitHub Codespaces (or clone locally).
+2. Install dependencies:
