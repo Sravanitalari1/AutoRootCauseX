@@ -1,9 +1,11 @@
 streamlit
 pandas
 requests
+beautifulsoup4
 sentence-transformers
 scikit-learn
 hdbscan
 umap-learn
 numpy
 plotly
+openai
