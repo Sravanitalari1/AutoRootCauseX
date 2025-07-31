@@ -1,0 +1,9 @@
+streamlit
+pandas
+requests
+sentence-transformers
+scikit-learn
+hdbscan
+umap-learn
+numpy
+plotly
