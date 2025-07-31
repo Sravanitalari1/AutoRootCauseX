@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from data.data_fetcher import scrape_nhtsa_data
+from data.data_fetcher import fetch_complaints
 from nlp.clustering import label_complaint_clusters
 from utils.kpi_generator import calculate_advanced_kpis
 
@@ -17,7 +17,7 @@ year = st.sidebar.selectbox("Year", list(range(2015, 2025))[::-1])
 
 if st.sidebar.button("Analyze"):
     with st.spinner("🔄 Fetching data and running analysis..."):
-        raw_df = scrape_nhtsa_data(make, model, year)
+        raw_df = fetch_complaints(make, model, year)
         if raw_df.empty:
             st.warning("No data found for this selection.")
         else:
