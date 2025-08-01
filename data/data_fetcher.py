@@ -1,7 +1,10 @@
-import requests
-import pandas as pd
+# data/data_fetcher.py
 
-def fetch_complaints(make="TESLA", model="MODEL 3", year=2021, limit=100):
+import requests
+from requests.adapters import HTTPAdapter
+from requests.packages.urllib3.util.retry import Retry
+
+def fetch_complaints(make, model, year, limit=500):
     base_url = "https://www.nhtsa.gov/webapi/api/Complaints/vehicle"
     params = {
         "make": make,
@@ -10,19 +13,24 @@ def fetch_complaints(make="TESLA", model="MODEL 3", year=2021, limit=100):
         "format": "json"
     }
 
-    response = requests.get(base_url, params=params)
-    if response.status_code != 200:
-        raise Exception(f"Failed to fetch data: {response.status_code}")
-
-    data = response.json()
-    complaints = data.get("Results", [])
-    df = pd.DataFrame(complaints)
+    session = requests.Session()
     
-    if df.empty:
-        return df
+    # Retry strategy for handling temporary failures
+    retry = Retry(
+        total=3,             # Retry up to 3 times
+        backoff_factor=0.5,  # Wait 0.5s, 1s, then 2s
+        status_forcelist=[500, 502, 503, 504],
+        raise_on_status=False
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
 
-    return df[["ODINumber", "Component", "Summary", "FailureDate", "VehicleIdentificationNumber", "City", "State"]].head(limit)
-
-if __name__ == "__main__":
-    df = fetch_complaints()
-    print(df.head())
+    try:
+        response = session.get(base_url, params=params, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+        results = data.get("Results", [])[:limit]
+        return results
+    except requests.exceptions.RequestException as e:
+        print(f"[ERROR] Failed to fetch data from NHTSA: {e}")
+        return []
