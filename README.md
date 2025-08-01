@@ -12,9 +12,10 @@ AutoRootCauseX is an end-to-end AI-powered platform designed to automate root ca
 
 ## Why I built this?
 
-To solve a real pain point in automotive aftersales and warranty claims analysis. Companies spend too much time manually digging through thousands of complaints to find patterns and root causes. My goal is to automate this process using AI — combining live data scraping, natural language processing, and advanced clustering techniques to deliver actionable insights quickly.
+To solve a real pain point in automotive aftersales and warranty claims analysis. Companies spend too much time manually digging through thousands of complaints to find patterns and root causes. My goal is to automate this process using AI — combining live data scraping, natural language processing, and advanced clustering techniques to deliver actionable insights quickly. 
 
 This tool helps accelerate diagnostics, reduce recall costs, and improve vehicle quality - especially crucial for electric vehicles and emerging automotive technologies.
+
 ---
 
 ## Key Features
